@@ -1,5 +1,5 @@
 variable "boundary_bin" {
-  default = "/usr/local/bin"
+  default = "/usr/bin"
 }
 
 variable "pub_ssh_key_path" {
