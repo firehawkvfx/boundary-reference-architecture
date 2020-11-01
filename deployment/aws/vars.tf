@@ -1,5 +1,5 @@
 variable "boundary_bin" {
-  default = "~/projects/boundary/bin"
+  default = "/usr/local/bin"
 }
 
 variable "pub_ssh_key_path" {
