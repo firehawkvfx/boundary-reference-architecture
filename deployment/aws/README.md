@@ -22,7 +22,7 @@ If your public SSH key you want to SSH to these hosts are not located at `~/.ssh
   - `ssh ubuntu@<controller-ip>`
   - `sudo systemctl status boundary-controller`
   - For workers, the systemd unit is called `boundary-worker`
-  - The admin console will be available at `https://boundary-test-controller-<random_name>-<random_sha>.elb.us-east-1.amazonaws.com:9200`
+  - The admin console will be available at `https://boundary-test-ctrler-<random_name>-<random_sha>.elb.us-east-1.amazonaws.com:9200`
 
 ## Configure Boundary 
 - Configure boundary using `terraform apply` (without the target flag), this will configure boundary per `boundary/main.tf`
@@ -34,7 +34,7 @@ If your public SSH key you want to SSH to these hosts are not located at `~/.ssh
 - Login on the CLI: 
 
 ```
-BOUNDARY_ADDR='https://boundary-test-controller-<random_name>-<some sha>.elb.us-east-1.amazonaws.com:9200' \
+BOUNDARY_ADDR='https://boundary-test-ctrler-<random_name>-<some sha>.elb.us-east-1.amazonaws.com:9200' \
   boundary authenticate password \
   -login-name=jim \
   -password foofoofoo \
@@ -48,6 +48,6 @@ You can also use this login name in the Boundary console that you navigated to i
 Connect to the target in the private subnet via Boundary:
 
 ```
-BOUNDARY_ADDR='http://boundary-test-controller-<random_name>-<sha>.elb.us-east-1.amazonaws.com:9200' \
+BOUNDARY_ADDR='http://boundary-test-ctrler-<random_name>-<sha>.elb.us-east-1.amazonaws.com:9200' \
   boundary connect ssh --username ubuntu -target-id ttcp_<generated_id>
 ```

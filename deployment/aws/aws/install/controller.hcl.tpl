@@ -6,7 +6,7 @@ telemetry {
 }
 
 controller {
-  name        = "demo-controller-${name_suffix}"
+  name        = "demo-ctrler-${name_suffix}"
   description = "A controller for a demo!"
 
   database {

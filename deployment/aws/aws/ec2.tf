@@ -168,7 +168,7 @@ resource "aws_instance" "controller" {
   }
 
   tags = {
-    Name = "${var.tag}-controller-${random_pet.test.id}"
+    Name = "${var.tag}-ctrler-${random_pet.test.id}"
   }
 }
 
@@ -176,7 +176,7 @@ resource "aws_security_group" "controller" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "${var.tag}-controller-${random_pet.test.id}"
+    Name = "${var.tag}-ctrler-${random_pet.test.id}"
   }
 }
 
