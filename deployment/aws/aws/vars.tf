@@ -3,7 +3,7 @@ resource "random_pet" "test" {
 }
 
 locals {
-  random_pet_test_id = substr(random_pet.test.id, 0, min(length(local.random_pet.test.id, 6))) # Limit the string length to avoid errors
+  random_pet_test_id = substr(random_pet.test.id, 0, min(length(random_pet.test.id, 6))) # Limit the string length to avoid errors
 
   tags = {
     Name = "${var.tag}-${local.random_pet_test_id}"
