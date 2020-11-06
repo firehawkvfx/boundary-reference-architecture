@@ -22,7 +22,7 @@ resource "aws_security_group" "db" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "${var.tag}-db-${random_pet.test.id}"
+    Name = "${var.tag}-db-${local.random_pet_test_id}"
   }
 }
 
@@ -49,6 +49,6 @@ resource "aws_db_subnet_group" "boundary" {
   subnet_ids = aws_subnet.public.*.id
 
   tags = {
-    Name = "${var.tag}-db-${random_pet.test.id}"
+    Name = "${var.tag}-db-${local.random_pet_test_id}"
   }
 }

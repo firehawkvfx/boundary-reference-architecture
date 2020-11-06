@@ -3,8 +3,10 @@ resource "random_pet" "test" {
 }
 
 locals {
+  random_pet_test_id = substr(local.random_pet_test_id, 0, min(length(local.random_pet_test_id, 6))) # Limit the string length to avoid errors
+
   tags = {
-    Name = "${var.tag}-${random_pet.test.id}"
+    Name = "${var.tag}-${local.random_pet_test_id}"
   }
 
   pub_cidrs  = cidrsubnets("10.0.0.0/24", 4, 4, 4, 4)

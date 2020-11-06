@@ -1,16 +1,16 @@
 resource "aws_lb" "controller" {
-  name               = "${var.tag}-ctrler-${random_pet.test.id}"
+  name               = "${var.tag}-ctrler-${local.random_pet_test_id}"
   load_balancer_type = "network"
   internal           = false
   subnets            = aws_subnet.public.*.id
 
   tags = {
-    Name = "${var.tag}-ctrler-${random_pet.test.id}"
+    Name = "${var.tag}-ctrler-${local.random_pet_test_id}"
   }
 }
 
 resource "aws_lb_target_group" "controller" {
-  name     = "${var.tag}-ctrler-${random_pet.test.id}"
+  name     = "${var.tag}-ctrler-${local.random_pet_test_id}"
   port     = 9200
   protocol = "TCP"
   vpc_id   = aws_vpc.main.id
@@ -20,7 +20,7 @@ resource "aws_lb_target_group" "controller" {
     type    = "source_ip"
   }
   tags = {
-    Name = "${var.tag}-ctrler-${random_pet.test.id}"
+    Name = "${var.tag}-ctrler-${local.random_pet_test_id}"
   }
 }
 
@@ -46,7 +46,7 @@ resource "aws_security_group" "controller_lb" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "${var.tag}-ctrler-lb-${random_pet.test.id}"
+    Name = "${var.tag}-ctrler-lb-${local.random_pet_test_id}"
   }
 }
 

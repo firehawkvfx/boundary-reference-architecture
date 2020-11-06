@@ -91,7 +91,7 @@ resource "aws_instance" "worker" {
   }
 
   tags = {
-    Name = "${var.tag}-worker-${random_pet.test.id}"
+    Name = "${var.tag}-worker-${local.random_pet_test_id}"
   }
 
   depends_on = [aws_instance.controller]
@@ -168,7 +168,7 @@ resource "aws_instance" "controller" {
   }
 
   tags = {
-    Name = "${var.tag}-ctrler-${random_pet.test.id}"
+    Name = "${var.tag}-ctrler-${local.random_pet_test_id}"
   }
 }
 
@@ -176,7 +176,7 @@ resource "aws_security_group" "controller" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "${var.tag}-ctrler-${random_pet.test.id}"
+    Name = "${var.tag}-ctrler-${local.random_pet_test_id}"
   }
 }
 
@@ -220,7 +220,7 @@ resource "aws_security_group" "worker" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "${var.tag}-worker-${random_pet.test.id}"
+    Name = "${var.tag}-worker-${local.random_pet_test_id}"
   }
 }
 
@@ -270,6 +270,6 @@ resource "aws_instance" "target" {
   vpc_security_group_ids = [aws_security_group.worker.id]
 
   tags = {
-    Name = "${var.tag}-target-${random_pet.test.id}"
+    Name = "${var.tag}-target-${local.random_pet_test_id}"
   }
 }
